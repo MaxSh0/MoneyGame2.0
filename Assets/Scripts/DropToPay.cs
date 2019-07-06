@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class DropToPay : MonoBehaviour, IDropHandler
 {
-    public int emotionPers = 0;
+    
     Vector3 newPosition;    // позиция только что положенных денег, которые совпали по номиналу
 	public GameObject _emoticonImg;
 
@@ -30,7 +30,7 @@ public class DropToPay : MonoBehaviour, IDropHandler
 				d.enabled = false;  // отключение возможности перетаскивать текущий элемент 
 				d.gameObject.GetComponent<Image>().color = new Color(79 / 255.0f, 165 / 255.0f, 63 / 255.0f);
 
-                emotionPers = 2;
+               // emoticonPers = 2;
 				_emoticonImg.GetComponent<EmoticonManager>().SetHappyEmoticon();
 			}
 			else

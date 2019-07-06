@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PersScene6 : MonoBehaviour {
     Animator anim;
-    [SerializeField] GameObject Money;
+    [SerializeField] GameObject imgEmoticon;
     public int emoticon = 0;
 
     void Start()
@@ -18,7 +18,7 @@ public class PersScene6 : MonoBehaviour {
 
     void Update()
     {
-        emoticon = Money.GetComponent<DropToPay>().emotionPers;
+        emoticon = imgEmoticon.GetComponent<EmoticonManager>().emoticonPers;
 
         if (emoticon == 1)
         {

@@ -20,8 +20,9 @@ public class MovingController : MonoBehaviour
     [SerializeField] GameObject Bag;
     [SerializeField] GameObject BagScene7;
     [SerializeField] GameObject Basket;
+    [SerializeField] GameObject Money;
 
-	public void GoToShops()
+    public void GoToShops()
 	{
 		if (CountingItems.listMoney.Count > 0)  // переместили деньги в кошелек
 		{
@@ -71,6 +72,7 @@ public class MovingController : MonoBehaviour
 		}
 		else
 		{
+            Money.GetComponent<GetMoneyCombination>().emotionPers = 1;
 			_emoticonImg.GetComponent<EmoticonManager>().SetSadEmoticon();
 			cashboxScreen.GetComponent<TextToSpeech>().StartDownloadAudioDown(ManagerController.text["CashboxScreen"]);
 		}

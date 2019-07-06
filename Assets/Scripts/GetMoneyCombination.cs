@@ -17,7 +17,8 @@ public class GetMoneyCombination : MonoBehaviour
 	public float sumChange;
 	static float summInWallet;  // сумма денег в кошельке пользователя
 
-	string sumChangeStr;
+    public int emotionPers = 0;
+    string sumChangeStr;
 	[SerializeField] GameObject _emoticonImg;
 
 	[SerializeField] GameObject _basket;    // корзина с экрана выбора товаров
@@ -119,8 +120,8 @@ public class GetMoneyCombination : MonoBehaviour
 						obj.AddComponent<DropToPay>();
 						obj.GetComponent<DropToPay>()._emoticonImg = _emoticonImg;
 						obj.transform.parent = parentCombArea;
-
-						break;
+                        //emotionPers = obj.GetComponent<DropToPay>().emoticonPers;
+                        break;
 					}
 				}
 			}
