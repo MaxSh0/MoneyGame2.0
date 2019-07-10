@@ -8,20 +8,25 @@ using UnityEngine.UI;
 public class TextToSpeech : MonoBehaviour
 {
 	[SerializeField] AudioSource _audio;
-
-	void Start()
+    //[SerializeField] GameObject panel;
+    bool playAudio = true;
+    void Start()
 	{
-		_audio = gameObject.GetComponent<AudioSource>();
+       //if (panel.GetComponent<SettingLanguage>().Language == 3)
+       //{
+           // playAudio = false;
+            _audio = gameObject.GetComponent<AudioSource>();
 
-		foreach (KeyValuePair<string, string> keyValue in ManagerController.text)
-		{
-			int compareResult = string.Compare(keyValue.Key, gameObject.name);  // сравнение названия экрана из списка и текущего экрана 
-			if (compareResult == 0)
-			{
-				StartDownloadAudioDown(keyValue.Value);
-				break;
-			}
-		}
+            foreach (KeyValuePair<string, string> keyValue in ManagerController.text)
+            {
+                int compareResult = string.Compare(keyValue.Key, gameObject.name);  // сравнение названия экрана из списка и текущего экрана 
+                if (compareResult == 0)
+                {
+                    StartDownloadAudioDown(keyValue.Value);
+                    break;
+                }
+            }
+       // }
 	}
 
 	IEnumerator DownloadAudio(string text)
@@ -40,8 +45,8 @@ public class TextToSpeech : MonoBehaviour
 			}
 			else
 			{
-				_audio.clip = DownloadHandlerAudioClip.GetContent(www);
-				_audio.Play();
+				//_audio.clip = DownloadHandlerAudioClip.GetContent(www);
+				//_audio.Play();
 			}
 		}
 	}

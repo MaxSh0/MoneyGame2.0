@@ -21,6 +21,7 @@ public class MovingController : MonoBehaviour
     [SerializeField] GameObject BagScene7;
     [SerializeField] GameObject Basket;
     [SerializeField] GameObject Money;
+    [SerializeField] GameObject panel;
 
     public void GoToShops()
 	{
@@ -121,10 +122,12 @@ public class MovingController : MonoBehaviour
 	public void Restart()
 	{
 		Image[] money = _changeArea.GetComponentsInChildren<Image>();
-		if (money.Length == 1)  // переместили сдачу в кошелек
+        int Language = panel.GetComponent<SettingLanguage>().Language;
+        if (money.Length == 1)  // переместили сдачу в кошелек
 		{
 			SceneManager.LoadScene("Main");
-		}
+            panel.GetComponent<SettingLanguage>().Language = Language;
+        }
 		else
 		{
             BagScene7.GetComponent<DropChange>().emotionPers = 1;

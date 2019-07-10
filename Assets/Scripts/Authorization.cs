@@ -108,7 +108,8 @@ public class Authorization : MonoBehaviour
 
 		if (jsonData.token.Length > 0)  // прошли авторизацию
 		{
-			StartCoroutine(PostTokenForMoney());
+            autorization = true;
+            StartCoroutine(PostTokenForMoney());
 			StartCoroutine(PostTokenForSettings());
 		}
 		else
